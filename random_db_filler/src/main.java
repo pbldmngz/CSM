@@ -11,7 +11,8 @@ public class main {
 
     public static void main(String[] args)
     {
-        classicStart(24, 500);
+        //classicStart(24, 500);
+        notificationGen(23, 50);
     }
 
     public static Connection getConnection()
@@ -37,6 +38,15 @@ public class main {
         for (int i = 1; i < alumnos; i++)
         {
             alumnoGen(i);
+        }
+    }
+
+    public static void notificationGen(int maxIndex, int cantidad)
+    {
+        for (int i = 0; i < cantidad; i++)
+        {
+            insertData("insert into notificacion (contenido, id_emisor, id_receptor) values ('" + messageGen()
+                    + "', " + (int) (Math.random() * maxIndex) + ", " + (int) (Math.random() * maxIndex) + ")");
         }
     }
 
@@ -117,5 +127,11 @@ public class main {
         int random = isName ? (int) (Math.random() * nombres.length - 1) : (int) (Math.random() * apellidos.length - 1);
 
         return isName ? nombres[random] : apellidos[random];
+    }
+
+    public static String messageGen()
+    {
+        String[] palabras = {  };
+        return "esto es un texto de prueba, eventualmente será algo más elegante";
     }
 }
