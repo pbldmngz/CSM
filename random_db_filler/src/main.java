@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.*;
 //import java.sql.ResultSet;
 
 public class main {
@@ -11,7 +8,8 @@ public class main {
 
     public static void main(String[] args)
     {
-        classicStart(24, 500);
+        //classicStart(24, 500);
+        notificationGen(23, 50);
     }
 
     public static Connection getConnection()
@@ -40,6 +38,15 @@ public class main {
         }
     }
 
+    public static void notificationGen(int maxIndex, int cantidad)
+    {
+        for (int i = 0; i < cantidad; i++)
+        {
+            insertData("insert into notificacion (contenido, id_emisor, id_receptor) values ('" + messageGen()
+                    + "', " + (int) (Math.random() * maxIndex) + ", " + (int) (Math.random() * maxIndex) + ")");
+        }
+    }
+
     public static void insertData(String statement)
     {
         Connection con = getConnection();
@@ -54,6 +61,22 @@ public class main {
             ex.printStackTrace();
             System.exit(0);
         }
+    }
+
+    public static ResultSet getDataRS(String statement)
+    {
+        Connection con = getConnection();
+        ResultSet rs = null;
+        try {
+            System.out.println("Se ha pasado este statement: " + statement);
+            PreparedStatement st = (PreparedStatement) con.prepareStatement(statement);
+            rs = st.executeQuery();
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+            System.exit(0);
+        }
+        return rs;
     }
 
     public static void alumnoGen(int id)
@@ -117,5 +140,11 @@ public class main {
         int random = isName ? (int) (Math.random() * nombres.length - 1) : (int) (Math.random() * apellidos.length - 1);
 
         return isName ? nombres[random] : apellidos[random];
+    }
+
+    public static String messageGen()
+    {
+        String[] palabras = {  };
+        return "esto es un texto de prueba, eventualmente será algo más elegante";
     }
 }
