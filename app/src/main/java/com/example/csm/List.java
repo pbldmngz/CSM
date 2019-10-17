@@ -7,18 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Acciones extends AppCompatActivity implements View.OnClickListener{
+public class List extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acciones);
+        setContentView(R.layout.activity_list);
 
-        Button btnOne = (Button) findViewById(R.id.listButton2);
-        Button btnTwo = (Button) findViewById(R.id.notificationsButton2);
-        Button btnFour = (Button) findViewById(R.id.profileButton2);
-        btnOne.setOnClickListener(this); // calling onClick() method
+        Button btnTwo = (Button) findViewById(R.id.notificationsButton3);
+        Button btnThree = (Button) findViewById(R.id.actionsButton3);
+        Button btnFour = (Button) findViewById(R.id.profileButton3);
         btnTwo.setOnClickListener(this);
+        btnThree.setOnClickListener(this);
         btnFour.setOnClickListener(this);
     }
 
@@ -27,17 +27,17 @@ public class Acciones extends AppCompatActivity implements View.OnClickListener{
 
         switch (v.getId()) {
 
-            case R.id.listButton2:
-                Intent intent = new Intent(this, List.class); //Notifications class is actually List class DO NOT CHANGE CLASS DESTINATION NAME
-                startActivity(intent);
-                break;
-
-            case R.id.notificationsButton2:
+            case R.id.notificationsButton3:
                 Intent intent2 = new Intent(this, Notifications.class); //List class is actually Notifications class DO NOT CHANGE CLASS DESTINATION NAME
                 startActivity(intent2);
                 break;
 
-            case R.id.profileButton2:
+            case R.id.actionsButton3:
+                Intent intent3 = new Intent(this, Acciones.class);
+                startActivity(intent3);
+                break;
+
+            case R.id.profileButton3:
                 Intent intent4 = new Intent(this, Perfil.class);
                 startActivity(intent4);
                 break;

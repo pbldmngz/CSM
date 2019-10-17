@@ -7,65 +7,74 @@
     android:background="@color/colorPrimary"
     tools:context=".Acciones">
 
-    <Button
-        android:id="@+id/Lista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="List"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context=".Acciones">
 
-    <Button
-        android:id="@+id/Notif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notificasiones "
-        app:layout_constraintEnd_toStartOf="@+id/accion"
-        app:layout_constraintStart_toEndOf="@+id/Lista"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/profileButton2"
+            android:layout_width="110dp"
+            android:layout_height="38dp"
+            android:backgroundTint="#03A9F4"
+            android:text="@string/profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/actionsButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/accion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="Acciones"
-        app:layout_constraintEnd_toStartOf="@+id/perfil"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/actionsButton2"
+            android:layout_width="100dp"
+            android:layout_height="38dp"
+            android:backgroundTint="#03A9F4"
+            android:text="@string/actions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.009"
+            app:layout_constraintStart_toEndOf="@+id/notificationsButton2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/perfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/listButton2"
+            android:layout_width="70dp"
+            android:layout_height="38dp"
+            android:backgroundTint="#03A9F4"
+            android:text="@string/list"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="357dp"
-        android:layout_height="304dp"
-        android:layout_marginTop="84dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <Button
+            android:id="@+id/notificationsButton2"
+            android:layout_width="130dp"
+            android:layout_height="38dp"
+            android:backgroundTint="#03A9F4"
+            android:text="@string/notifications"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/listButton2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+            android:text="@string/this_is_the_actions_tab"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/actionsButton2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ScrollView
-        android:layout_width="355dp"
-        android:layout_height="294dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
