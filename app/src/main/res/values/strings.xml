@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">CSM</string>
+    <string name="test">Test</string>
+    <string name="class_1">IS 4</string>
+    <string name="class_2">IDGD 4</string>
+    <string name="class_3">IS 6</string>
+    <string name="class_4">IDGD 6</string>
+    <string name="actions">Actions</string>
+    <string name="notifications">Notifications</string>
+    <string name="list">List</string>
+    <string name="profile">Profile</string>
+    <string name="this_is_the_actions_tab">This is the Actions tab</string>
+    <string name="this_is_the_list_view">This is the List View</string>
+    <string name="no_of_attempts_remaining_5">No of Attempts remaining: 5</string>
 </resources>
