@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLIntegrityConstraintViolationException;
 //import java.sql.ResultSet;
 
 public class main {
@@ -10,7 +11,7 @@ public class main {
 
     public static void main(String[] args)
     {
-        classicStart(12, 300);
+        classicStart(24, 500);
     }
 
     public static Connection getConnection()
@@ -28,9 +29,7 @@ public class main {
     }
 
     public static void classicStart(int profesores, int alumnos)
-    { //No usar hasta haber hecho algo con la relacion profesor_materia
-        // y materia alumno. Necesito un par más de triggers
-        // por el resto, se ve bien
+    {
         for (int i = 1; i < profesores; i++)
         {
             profesorGen(i);
@@ -45,11 +44,15 @@ public class main {
     {
         Connection con = getConnection();
         try {
-            System.out.println("Probando para alumno con este statement: " + statement);
+            System.out.println("Se ha pasado este statement: " + statement);
             PreparedStatement st = (PreparedStatement) con.prepareStatement(statement);
             int rs = st.executeUpdate();
-        } catch (Exception e){
-            System.out.println(e);
+        } catch (SQLIntegrityConstraintViolationException e){
+            System.out.println("Ya existe un perfil con este ID, se pasará al siguiente");
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -64,6 +67,7 @@ public class main {
         insertData("insert into alumno (id_alumno, correo, nombre, primer_apellido, segundo_apellido, id_grupo) values ("+
                 id_alumno +", '"+ correo +"', '"+ nombre +"', '"+ primer_apellido +"', '"+ segundo_apellido +"', "+ id_grupo +")");
         System.out.println("Alumno generado, correo: " + correo);
+        asignarMateria(false, id_alumno);
     }
 
     public static void profesorGen(int id)
@@ -77,6 +81,18 @@ public class main {
         insertData("insert into profesor (id_empleado, correo, nombre, primer_apellido, segundo_apellido, telefono) values ("+
                 id_empleado +", '"+ correo +"', '"+ nombre +"', '"+ primer_apellido +"', '"+ segundo_apellido +"', "+ telefono +")");
         System.out.println("Profesor generado, correo: " + correo);
+        asignarMateria(true, id_empleado);
+    }
+
+    public static void asignarMateria(boolean esProfesor, int id)
+    {
+        String opcion = esProfesor ? "materia_profesor":"materia_alumno";
+        for (int i = 0; i < 7; i++){
+            if ((int) (Math.random() * 4) == 2){
+                insertData("insert into " + opcion + " values (" + i + ", "+ id + ")");
+            }
+        }
+
     }
 
     public static String telGen()
