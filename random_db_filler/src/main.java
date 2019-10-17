@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.*;
 //import java.sql.ResultSet;
 
 public class main {
@@ -64,6 +61,22 @@ public class main {
             ex.printStackTrace();
             System.exit(0);
         }
+    }
+
+    public static ResultSet getDataRS(String statement)
+    {
+        Connection con = getConnection();
+        ResultSet rs = null;
+        try {
+            System.out.println("Se ha pasado este statement: " + statement);
+            PreparedStatement st = (PreparedStatement) con.prepareStatement(statement);
+            rs = st.executeQuery();
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+            System.exit(0);
+        }
+        return rs;
     }
 
     public static void alumnoGen(int id)
