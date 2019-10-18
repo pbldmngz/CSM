@@ -41,14 +41,9 @@ public class Connect {
         }
     }
 
+    //Método intermedio para facilitar el sacar ResultSets
     public static ResultSet getDataRS(String statement)
-    {   //Esto no devuelve datos utilizables, devuelve el resultSet,
-        // Falta crear el objeto de la consulta y darla las características,
-        // luego utilizar algo como:
-        //    while(result.next()) {
-        //      Product prod = new Product();
-        //      prod.setTotal(result.getDouble("total"))
-        //      products.add(prod); //Añadir el objeto a una lista
+    {
         Connection con = getConnection();
         ResultSet rs = null;
         try {
@@ -62,4 +57,5 @@ public class Connect {
         }
         return rs;
     }
+
 }
