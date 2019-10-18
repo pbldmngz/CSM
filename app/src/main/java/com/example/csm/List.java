@@ -12,11 +12,11 @@ public class List extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_notifications);
 
-        Button btnTwo = (Button) findViewById(R.id.notificationsButton3);
-        Button btnThree = (Button) findViewById(R.id.actionsButton3);
-        Button btnFour = (Button) findViewById(R.id.profileButton3);
+        Button btnTwo = (Button) findViewById(R.id.notificationsButton);
+        Button btnThree = (Button) findViewById(R.id.actionsButton);
+        Button btnFour = (Button) findViewById(R.id.profileButton);
         btnTwo.setOnClickListener(this);
         btnThree.setOnClickListener(this);
         btnFour.setOnClickListener(this);
@@ -27,17 +27,17 @@ public class List extends AppCompatActivity implements View.OnClickListener{
 
         switch (v.getId()) {
 
-            case R.id.notificationsButton3:
+            case R.id.notificationsButton:
                 Intent intent2 = new Intent(this, Notifications.class); //List class is actually Notifications class DO NOT CHANGE CLASS DESTINATION NAME
                 startActivity(intent2);
                 break;
 
-            case R.id.actionsButton3:
+            case R.id.actionsButton:
                 Intent intent3 = new Intent(this, Acciones.class);
                 startActivity(intent3);
                 break;
 
-            case R.id.profileButton3:
+            case R.id.profileButton:
                 Intent intent4 = new Intent(this, Perfil.class);
                 startActivity(intent4);
                 break;
