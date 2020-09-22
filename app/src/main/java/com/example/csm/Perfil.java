@@ -14,11 +14,10 @@ public class Perfil extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
-        Button btnOne = (Button) findViewById(R.id.button2);
-        Button btnTwo = (Button) findViewById(R.id.button3);
-        Button btnThree = (Button) findViewById(R.id.button4);
-        Button btnFour = (Button) findViewById(R.id.button5);
-        btnOne.setOnClickListener(this); // calling onClick() method
+        Button btnTwo = (Button) findViewById(R.id.notificationsButton4);
+        Button btnThree = (Button) findViewById(R.id.actionsButton4);
+        Button btnFour = (Button) findViewById(R.id.listButton4);
+        // calling onClick() method
         btnTwo.setOnClickListener(this);
         btnThree.setOnClickListener(this);
         btnFour.setOnClickListener(this);
@@ -29,21 +28,21 @@ public class Perfil extends AppCompatActivity implements
 
         switch (v.getId()) {
 
-            case R.id.button2:
-                // code for button when user clicks btnOne.
-                break;
-
-            case R.id.button3:
-                // do your code
-                break;
-
-            case R.id.button4:
-                Intent intent = new Intent(this, Acciones.class);
+            case R.id.notificationsButton4:
+                Intent intent = new Intent(Perfil.this, Notifications.class
+                ); //Notifications class is actually List class DO NOT CHANGE CLASS DESTINATION NAME
                 startActivity(intent);
                 break;
 
-            case R.id.button5:
-                // do your code
+
+            case R.id.actionsButton4:
+                Intent intent3 = new Intent(Perfil.this, Acciones.class);
+                startActivity(intent3);
+                break;
+
+            case R.id.listButton4:
+                Intent intent4 = new Intent(Perfil.this, List.class);
+                startActivity(intent4);
                 break;
 
             default:
